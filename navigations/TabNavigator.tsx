@@ -51,13 +51,7 @@ const ShopStackScreen = () => {
                 name="ShopStack"
                 component={Shop}
                 options={{
-                    headerTransparent: true,
-                    header: (properties) => (
-                        <Header
-                            {...properties}
-                            isShowBackIcon={false}
-                            isShowSearchIcon
-                        />)
+                    headerShown: false,
                 }}
             />
             <ShopStack.Screen

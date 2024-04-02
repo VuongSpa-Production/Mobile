@@ -2,7 +2,7 @@ import { images } from "../constants";
 
 export const products = [{
     name: "Evening Dress",
-    category: "Dorothy Perkins",
+    category: "Women",
     ratingValue: 3,
     totalRating: 10,
     salePrice: 12,
@@ -10,8 +10,8 @@ export const products = [{
     currency: "$",
     image: images.product1
 }, {
-    name: "Sport Dress",
-    category: "Sitily",
+    name: "Men",
+    category: "Men",
     ratingValue: 5,
     totalRating: 2,
     salePrice: 22,
@@ -21,7 +21,7 @@ export const products = [{
     discount: '-20%'
 }, {
     name: "Sport Dress",
-    category: "Dorothy Perkins",
+    category: "Kids",
     price: 14,
     currency: "$",
     image: images.product3

@@ -23,6 +23,10 @@ export const styles = StyleSheet.create({
     subText: {
         fontSize: 14,
         color: "white"
-    }
-
+    },
+    productContainer: {
+        marginTop: 10,
+        flexDirection: 'row',
+        flexWrap: 'wrap',
+      },
 });

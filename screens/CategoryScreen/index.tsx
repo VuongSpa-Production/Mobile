@@ -20,14 +20,21 @@ import SortBy from "./SortBy";
 const Category = ({ route, navigation }) => {
     const { theme } = useTheme();
     const actionSheetRef = useRef<ActionSheetRef>(null);
-    const [ currentSortIndex, setCurrentSort ] = useState(3)
+    const [currentSortIndex, setCurrentSort] = useState(3)
     const category: string = route.params.category;
 
     return (
         <AppContainer>
             <View style={styles.container}>
                 <View style={styles.topBox}>
-                    <ScrollView horizontal>
+                    <ScrollView
+                        horizontal
+                        style={
+                            {
+                                marginTop: 20,
+                            }
+                        }
+                    >
                         {tags.length && tags.map((tag: string, index: number) => (
                             <Chip key={index} color={theme.colors.white} backgroundColor={theme.colors.black} text={tag} />
                         ))}

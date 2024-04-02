@@ -8,7 +8,6 @@
 import React from 'react';
 import { ScrollView } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
-import { HEADER_HEIGHT } from '../../constants';
 
 type AppContainerProps = {
     children: React.ReactNode;
@@ -19,8 +18,9 @@ const AppContainer = ({ children }: AppContainerProps) => {
 
     return (
         <ScrollView style={{
-            marginTop: insets.top + HEADER_HEIGHT
-        }}>
+            marginTop: insets.top
+        }}
+        >
             {children}
         </ScrollView>
     );
