@@ -15,10 +15,17 @@ import AnimatedTextInput from '../../components/AnimatedInput';
 import Socials from '../../components/Socials';
 import ErrorBoundary from '../../components/HOC/ErrorBoundary';
 import AppContainer from '../../components/HOC/AppContainer';
+import { useDispatch } from 'react-redux';
+import { guestLogin } from '../../store/authSlice';
 
 const Login = ({ navigation }) => {
+    const dispatch = useDispatch();
     const { theme } = useTheme();
     const { t } = useTranslation();
+
+    const handleGuestLogin = () => {
+        dispatch(guestLogin());
+    }
 
     const validationSchema = yup.object().shape({
         email: yup.string().email(t('common:invalidEmail')).required(t('common:textRequired', { text: t('common:email') })),
@@ -75,9 +82,19 @@ const Login = ({ navigation }) => {
                                 </View>
                                 <View style={styles.buttonContainer}>
                                     <Button
-                                        title={t('common:login')}
+                                        title={t('Đăng nhập')}
                                         uppercase
                                         onPress={() => handleSubmit()}
+                                    />
+                                    <View style={
+                                        {
+                                            marginVertical: 10,
+                                        }
+                                    }/>
+                                    <Button
+                                        title={t('Tiếp tục với tư cách khách')}
+                                        uppercase
+                                        onPress={() => handleGuestLogin()}
                                     />
                                 </View>
                                 <View style={styles.socialContainer}>

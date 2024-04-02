@@ -24,6 +24,10 @@ const authSlice = createSlice({
       state.isLoggedIn = true;
       state.user = action.payload;
     },
+    guestLogin: (state) => {
+      state.isLoggedIn = true;
+      state.user = null;
+    },
     logout: (state) => {
       state.isLoggedIn = false;
       state.user = null;
@@ -31,7 +35,7 @@ const authSlice = createSlice({
   },
 });
 
-export const { login, logout } = authSlice.actions;
+export const { login, guestLogin, logout } = authSlice.actions;
 
 // Thunks
 export const loadUserData = () => async (dispatch) => {
