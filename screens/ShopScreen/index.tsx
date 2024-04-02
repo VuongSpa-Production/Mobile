@@ -17,6 +17,7 @@ import { categories, categoryBanner } from "../../data";
 import { HEADER_HEIGHT } from '../../constants';
 import { useDispatch } from 'react-redux';
 import { changeCategory } from "../../store/productSlice";
+import CategoryScreen from '../CategoryScreen';
 
 const Shop = ({ navigation }) => {
     const dispatch: Dispatch<any> = useDispatch();
@@ -40,6 +41,7 @@ const Shop = ({ navigation }) => {
                 </View>
                 <TabView items={categories} index={index} setIndex={setIndex} onPress={(category) => updateCategory(category)} />
             </View>
+            {/* <CategoryScreen></CategoryScreen> */}
         </AppContainer>
     );
 }

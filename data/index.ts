@@ -113,7 +113,7 @@ export const categories = [
 ];
 
 export const categoryBanner = {
-    title: "SUMMER SALES",
+    title: "Nhân dịp khai trương ",
     subTitle: "Up to 50% off"
 }
 
