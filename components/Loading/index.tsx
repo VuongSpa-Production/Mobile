@@ -7,7 +7,6 @@
 
 import React from 'react';
 import { Icon, Text, Overlay, IconProps } from '@rneui/themed';
-import "@tensorflow/tfjs-react-native";
 import { styles } from './styles';
 
 
