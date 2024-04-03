@@ -12,7 +12,8 @@ import { useTranslation } from "react-i18next";
 import { styles } from './styles';
 import ProductCard from '../../components/ProductCard';
 import ErrorBoundary from '../../components/HOC/ErrorBoundary';
-import { products, banner } from "../../data";
+import { banner } from "../../data";
+import { products } from '../../data/seed';
 
 const Home = ({ navigation }) => {
     const { t } = useTranslation();

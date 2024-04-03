@@ -1,7 +1,8 @@
 import { images } from "../constants";
 
+
 export const products = [{
-    name: "Evening Dress",
+    name: "Máy Đánh Giấy Ráp Rung DongCheng DSB185",
     categoryId: "new",
     ratingValue: 3,
     totalRating: 10,
@@ -89,7 +90,6 @@ export const categoryBanner = {
     subTitle: "Up to 50% off"
 }
 
-export const tags = ["T-shirts", "Crop tops", "Blouses", "sport", "Light dress"]
 
 export const sortItems = [{
     id: "popularity",

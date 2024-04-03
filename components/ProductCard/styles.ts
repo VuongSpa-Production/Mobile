@@ -3,8 +3,8 @@ import { StyleSheet } from 'react-native';
 export const styles = (width?) => StyleSheet.create({
     container: {
         flexBasis: '44%',
-        borderRadius: 12,
-        elevation: 2,
+        borderRadius: 4,
+        elevation: 1,
         width,
         shadowColor: "#777",
         shadowOffset: {
@@ -13,10 +13,8 @@ export const styles = (width?) => StyleSheet.create({
         },
         marginHorizontal: 10,
         marginVertical: 10,
-        justifyContent: "flex-start",
     },
     imageContainer: {
-        flex: 1,
         width
     },
     image: {
@@ -26,24 +24,27 @@ export const styles = (width?) => StyleSheet.create({
     },
     productInfo: {
         marginTop: 10,
+        flexDirection: 'column',
     },
     star: {
         flexDirection: "row",
-        alignContent: "center"
-
+        alignContent: "center",
+        marginHorizontal: 7
     },
     text: {
         marginTop: 2,
-        fontSize: 16,
-        fontWeight: "500"
+        fontSize: 14,
+        fontWeight: "500",
+        marginHorizontal: 10
     },
     priceContainer: {
         flexDirection: "row",
+        marginLeft: 10,
     },
     price: {
         fontSize: 14,
         color: "#9B9B9B",
-        marginRight: 3
+        marginRight: 3,
     },
     salePrice: {
         color: "#DB3022"
