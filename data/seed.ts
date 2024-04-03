@@ -1,3 +1,4 @@
+import { images } from "../constants";
 import { product, tag, category } from "./type";
 
 const tags: tag[] = [
@@ -49,7 +50,7 @@ const categories: category[] = [
 const products: product[] = [
     {
         "name": "Máy Đánh Giấy Ráp Rung DongCheng DSB185",
-        "price": 1000000,
+        "price": 300000,
         "categoryIDs": [1],
         "tagIDs": [1],
         "images": [],

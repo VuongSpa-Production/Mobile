@@ -71,12 +71,12 @@ const Shop = ({ navigation }) => {
                      * Component cũ để hiển thị các subcategories
                      */
                 }
-                {/* <TabView 
+                <TabView 
                     items={categories} 
                     index={index} 
                     setIndex={setIndex} 
                     onPress={(category) => updateCategory(category)} 
-                /> */}
+                />
 
 
                 <View style={styles.productContainer}>
@@ -89,7 +89,7 @@ const Shop = ({ navigation }) => {
                             totalRating={product.totalRating}
                             price={product.price}
                             salePrice={product.salePrice}
-                            image={product.image}
+                            image={product.images}
                             buttonStyle={{ backgroundColor: `${theme.colors.primary}` }}
                             imageWidth={155}
                             imageHeight={160}

@@ -45,12 +45,12 @@ const ProductCard = (props: DisplayProductProp) => {
         image,
     } = props;
 
-    const imageWidth = props.imageStyle ? props.imageStyle.width : 150;
+    const imageWidth = props.imageStyle ? props.imageStyle.width : 200;
     const imageHeight = props.imageStyle ? props.imageStyle.height : 150;
     const imageStyle = props.imageStyle ? props.imageStyle : {};
     const tag = props.tag ? props.tag : "";
     const badgeStyle = props.badgeStyle ? props.badgeStyle : {};
-    const imageSource = image ? image : require('../../assets/products/unknown.png');
+    const imageSource = image ? image : require('../../assets/products/8.jpg');
     const currency = "đ";
     const salePrice = props.price;
     const ratingCount = 5;
