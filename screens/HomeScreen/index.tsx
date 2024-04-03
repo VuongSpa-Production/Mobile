@@ -36,6 +36,33 @@ const Home = ({ navigation }) => {
                 </View>
                 <View style={styles().titleContainer}>
                     <View>
+                        <Text h1>{t('common:suggested')}</Text>
+                        <Text h3 style={styles().subTitle}>{t('common:homeSubTitle')}</Text>
+                    </View>
+                    <TouchableHighlight underlayColor="transparent" onPress={() => navigation.navigate(t('common:shop'))}>
+                        <Text h3>{t('common:viewAll')}</Text>
+                    </TouchableHighlight>
+                </View>
+                <ScrollView horizontal>
+                    <View style={styles().productContainer}>
+                        {products && products.map((product, index) => (
+                            <ProductCard
+                                key={index}
+                                category={product.categoryId}
+                                name={product.name}
+                                ratingValue={product.ratingValue}
+                                totalRating={product.totalRating}
+                                price={product.price}
+                                salePrice={product.salePrice}
+                                image={product.image}
+                                buttonStyle={{ backgroundColor: `${theme.colors.primary}` }}
+                                // label="NEW"
+                            />
+                        ))}
+                    </View>
+                </ScrollView>
+                <View style={styles().titleContainer}>
+                    <View>
                         <Text h1>{t('common:new')}</Text>
                         <Text h3 style={styles().subTitle}>{t('common:homeSubTitle')}</Text>
                     </View>
@@ -48,7 +75,7 @@ const Home = ({ navigation }) => {
                         {products && products.map((product, index) => (
                             <ProductCard
                                 key={index}
-                                category={product.category}
+                                category={product.categoryId}
                                 name={product.name}
                                 ratingValue={product.ratingValue}
                                 totalRating={product.totalRating}

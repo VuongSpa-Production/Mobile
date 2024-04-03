@@ -57,7 +57,7 @@ const Category = ({ route, navigation }) => {
                     {products && products.map((product, index) => (
                         <ProductCard
                             key={index}
-                            category={product.category}
+                            category={product.categoryId}
                             name={product.name}
                             ratingValue={product.ratingValue}
                             totalRating={product.totalRating}

@@ -22,7 +22,7 @@ export default {
     new: 'Sản phẩm mới',
     homeSubTitle: "You've never seen it before!",
     viewAll: 'Xem tất cả',
-    shop: 'Shop',
+    shop: 'Sản phẩm',
     haveAnAccount: 'Already have an Account?',
     filters: 'Bộ lọc',
     priceRange: 'Price range',
@@ -35,4 +35,5 @@ export default {
     searchPhoto: 'Search by taking a photo',
     cropPhoto: 'Crop the item',
     findingResults: 'Finding similar results...',
+    suggested: 'Gợi ý cho bạn',
 };

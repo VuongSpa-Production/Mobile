@@ -2,7 +2,7 @@ import { images } from "../constants";
 
 export const products = [{
     name: "Evening Dress",
-    category: "Women",
+    categoryId: "new",
     ratingValue: 3,
     totalRating: 10,
     salePrice: 12,
@@ -11,7 +11,7 @@ export const products = [{
     image: images.product1
 }, {
     name: "Men",
-    category: "Men",
+    categoryId: "bestSale",
     ratingValue: 5,
     totalRating: 2,
     salePrice: 22,
@@ -21,13 +21,13 @@ export const products = [{
     discount: '-20%'
 }, {
     name: "Sport Dress",
-    category: "Kids",
+    categoryId: "allProducts",
     price: 14,
     currency: "$",
     image: images.product3
 }, {
     name: "Light Blouse",
-    category: "Dorothy Perkins",
+    categoryId: "allProducts",
     ratingValue: 4,
     totalRating: 50,
     price: 12,
@@ -49,7 +49,21 @@ export const visualSearchBanner = {
 
 export const categories = [
     {
-        "name": "Women",
+        "name": "Sản phẩm mới",
+        "categoryID": "new",
+        "subcategories": [
+        ]
+    },
+    {
+        "name": "Bán chạy",
+        "categoryID": "bestSale",
+        "subcategories": [
+
+        ]
+    },
+    {
+        "name": "Tất cả sản phẩm",
+        "categoryID": "allProducts",
         "subcategories": [{
             "name": "New",
             "image": images.image4
@@ -66,48 +80,6 @@ export const categories = [
             "name": "Accessories",
             "image": images.image3
         },
-        ]
-    },
-    {
-        "name": "Men",
-        "subcategories": [
-            {
-                "name": "New",
-                "image": null
-            },
-            {
-                "name": "Clothing",
-                "image": null
-            },
-            {
-                "name": "Shoes",
-                "image": null
-            },
-            {
-                "name": "Accessories",
-                "image": null
-            }
-        ]
-    },
-    {
-        "name": "Kids",
-        "subcategories": [
-            {
-                "name": "New",
-                "image": null
-            },
-            {
-                "name": "Boys",
-                "image": null
-            },
-            {
-                "name": "Girls",
-                "image": null
-            },
-            {
-                "name": "Baby",
-                "image": null
-            },
         ]
     }
 ];

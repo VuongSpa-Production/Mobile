@@ -43,7 +43,7 @@ const Shop = ({ navigation }) => {
 
     useEffect(() => {
         console.log("category da chon: ", categories[index])
-        const filteredProducts = products.filter(product => product.category === categories[index].name);
+        const filteredProducts = products.filter(product => product.categoryId === categories[index].categoryID);
         setDisplayProduct(filteredProducts)
     }, [index])
 
@@ -71,7 +71,13 @@ const Shop = ({ navigation }) => {
                      * Component cũ để hiển thị các subcategories
                      */
                 }
-                {/* <TabView items={categories} index={index} setIndex={setIndex} onPress={(category) => updateCategory(category)} /> */}
+                {/* <TabView 
+                    items={categories} 
+                    index={index} 
+                    setIndex={setIndex} 
+                    onPress={(category) => updateCategory(category)} 
+                /> */}
+
 
                 <View style={styles.productContainer}>
                     {displayProducts && displayProducts.map((product, index) => (
