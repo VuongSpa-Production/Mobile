@@ -1,5 +1,5 @@
 import { images } from "../constants";
-import { product, tag, category } from "./type";
+import { product, tag, category, order, statusOrder } from "./type";
 
 const tags: tag[] = [
     {
@@ -20,6 +20,167 @@ const tags: tag[] = [
     }
 ]
 
+const statusOrders: statusOrder[] = [
+    {
+        name: "Chờ xác nhận",
+        id: 1
+    },
+    {
+        name: "Đang giao",
+        id: 2
+    },
+    {
+        name: "Đã giao",
+        id: 3
+    },
+    {
+        name: "Đã hủy",
+        id: 4
+    }
+]
+const orders: order[] = [
+    {
+        id: 1,
+        orderDate: "2024-03-25",
+        total: 2800000,
+        statusId: 1,
+        products: []
+    },
+    {
+        id: 2,
+        orderDate: "2024-03-23",
+        total: 3700000,
+        statusId: 2,
+        products: []
+    },
+    {
+        id: 3,
+        orderDate: "2024-03-20",
+        total: 2200000,
+        statusId: 2,
+        products: []
+    },
+    {
+        id: 4,
+        orderDate: "2024-03-18",
+        total: 1900000,
+        statusId: 3,
+        products: []
+    },
+    {
+        id: 5,
+        orderDate: "2024-03-15",
+        total: 3300000,
+        statusId: 4,
+        products: []
+    },
+    // Thêm các đơn hàng khác tương tự ở đây
+    {
+        id: 6,
+        orderDate: "2024-03-12",
+        total: 4500000,
+        statusId: 1,
+        products: []
+    },
+    {
+        id: 7,
+        orderDate: "2024-03-10",
+        total: 2100000,
+        statusId: 2,
+        products: []
+    },
+    {
+        id: 8,
+        orderDate: "2024-03-08",
+        total: 3000000,
+        statusId: 1,
+        products: []
+    },
+    {
+        id: 9,
+        orderDate: "2024-03-05",
+        total: 2600000,
+        statusId: 3,
+        products: []
+    },
+    {
+        id: 10,
+        orderDate: "2024-03-03",
+        total: 2800000,
+        statusId: 4,
+        products: []
+    },
+    {
+        id: 11,
+        orderDate: "2024-02-29",
+        total: 3700000,
+        statusId: 1,
+        products: []
+    },
+    {
+        id: 12,
+        orderDate: "2024-02-27",
+        total: 2200000,
+        statusId: 2,
+        products: []
+    },
+    {
+        id: 13,
+        orderDate: "2024-02-24",
+        total: 1900000,
+        statusId: 2,
+        products: []
+    },
+    {
+        id: 14,
+        orderDate: "2024-02-22",
+        total: 3300000,
+        statusId: 3,
+        products: []
+    },
+    {
+        id: 15,
+        orderDate: "2024-02-19",
+        total: 4500000,
+        statusId: 4,
+        products: []
+    },
+    {
+        id: 16,
+        orderDate: "2024-02-17",
+        total: 2100000,
+        statusId: 1,
+        products: []
+    },
+    {
+        id: 17,
+        orderDate: "2024-02-14",
+        total: 3000000,
+        statusId: 2,
+        products: []
+    },
+    {
+        id: 18,
+        orderDate: "2024-02-12",
+        total: 2600000,
+        statusId: 2,
+        products: []
+    },
+    {
+        id: 19,
+        orderDate: "2024-02-09",
+        total: 2800000,
+        statusId: 3,
+        products: []
+    },
+    {
+        id: 20,
+        orderDate: "2024-02-07",
+        total: 3700000,
+        statusId: 4,
+        products: []
+    },
+]
 const categories: category[] = [
     {
         name: "Máy khoan",
@@ -348,4 +509,4 @@ const products: product[] = [
     }
 ]
 
-export { products, tags, categories }
+export { products, tags, categories,orders,statusOrders }

@@ -12,7 +12,7 @@ import Shop from "../screens/ShopScreen";
 import Bag from "../screens/RegisterScreen";
 import Category from "../screens/CategoryScreen";
 import ProductFilter from "../screens/ProductFilterScreen";
-import Favorites from "../screens/ForgotPasswordScreen";
+import Favorites from "../screens/OrderScreen";
 import Profile from "../screens/ProfileScreen";
 import VisualSearch from "../screens/VisualSearchScreen";
 import SearchPhoto from "../screens/SearchPhotoScreen";
