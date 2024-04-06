@@ -36,4 +36,5 @@ export default {
     cropPhoto: 'Crop the item',
     findingResults: 'Finding similar results...',
     suggested: 'Suggestion for you',
+    flashSale: 'Flash Sale',
 };
