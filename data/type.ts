@@ -5,7 +5,7 @@ type product = {
     price: number;
     categoryIDs: number[];
     tagIDs: number[];
-    images: string[];
+    images: ImageSourcePropType[];
     rating: number;
     discount: number;
     sales: number;

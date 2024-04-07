@@ -26,29 +26,46 @@ import { SafeAreaView } from 'react-native-safe-area-context';
 import { Entypo, AntDesign } from "@expo/vector-icons";
 import { categoriesData } from '../../data/categoriesData';
 import { categories } from '../../data/seed';
-import {images} from '../../constants';
+import { images } from '../../constants';
 // import { bannerImages } from '../../data/bannerImage';
 import { TAB_BAR_HEIGHT } from '../../constants';
+import { product } from '../../data/type';
+
+function filterDisplayData(data: product[]) {
+    return data.map((item) => {
+        if (item.images.length === 0) {
+            item.images.push(require("../../assets/products/unknown.png"));
+        }
+        return {
+            title: item.name,
+            price: item.price,
+            image: item.images[0],
+            rating: {
+                rate: item.rating,
+                count: 1,
+            },
+        };
+    });
+}
 
 
 const Home = ({ navigation }) => {
     const { t } = useTranslation();
     const { theme } = useTheme();
     const screenHeight = Dimensions.get('window').height;
+    const screenWidth = Dimensions.get('window').width;
     const sixtyFivePercentOfScreenHeight = screenHeight * 1;
     const [modalVisible, setModalVisible] = useState(false);
     const [addresses, setAddresses] = useState(addressesList);
     const [selectedAddress, setSelectedAdress] = useState<Address | null>(addressesList[0]);
-    const bannerImages = [
-        "https://img.etimg.com/thumb/msid-93051525,width-1070,height-580,imgsize-2243475,overlay-economictimes/photo.jpg",
-        "https://images-eu.ssl-images-amazon.com/images/G/31/img22/Wireless/devjyoti/PD23/Launches/Updated_ingress1242x550_3.gif",
-        "https://images-eu.ssl-images-amazon.com/images/G/31/img23/Books/BB/JULY/1242x550_Header-BB-Jul23.jpg",
-    ];
 
     useEffect(() => {
         console.log("modal visible", modalVisible);
-    }
-        , [modalVisible]);
+    },[modalVisible]);
+
+
+    const newProduct = filterDisplayData(products.filter(product => product.tagIDs.includes(2)));
+    const flashSaleProduct = filterDisplayData(products.filter(product => product.tagIDs.includes(1)));
 
     return (
         <View
@@ -60,14 +77,14 @@ const Home = ({ navigation }) => {
                 style={{
                     backgroundColor: "white",
                     height: sixtyFivePercentOfScreenHeight,
-                    paddingBottom:TAB_BAR_HEIGHT
+                    paddingBottom: TAB_BAR_HEIGHT
                 }}
             >
-                <View 
-                style = {{
-                    backgroundColor: "white",
-                    flex: 1,
-                }}
+                <View
+                    style={{
+                        backgroundColor: "white",
+                        flex: 1,
+                    }}
                 >
                     {/* <ImageBackground source={banner.image} resizeMode="cover" style={styles().image}>
                         <Text style={styles().text}>{banner.text}</Text>
@@ -108,87 +125,74 @@ const Home = ({ navigation }) => {
                     </Pressable>
                     {/* kết thúc chọn địa chỉ giao hàng */}
                     <ScrollView>
-                    <SliderBox
-                        images={[images.image1, images.image2, images.image3]}
-                        autoPlay
-                        circleLoop
-                        dotColor={"#13274F"}
-                        inactiveDotColor="#90A4AE"
-                        ImageComponentStyle={{ width: "100%" }}
-                    />
-                    <ScrollView horizontal showsHorizontalScrollIndicator={false}>
-                        {categories.map((item, index) => (
-                            <Pressable
-                                key={index}
-                                style={{
-                                    margin: 10,
-                                    justifyContent: "center",
-                                    alignItems: "center",
-                                }}
-                            >
-                                <Image
-                                    style={{ width: 50, height: 50, resizeMode: "contain" }}
-                                    source={ item?.image }
-                                />
-
-                                <Text
+                        <SliderBox
+                            images={[images.image1, images.image2, images.image3]}
+                            autoPlay
+                            circleLoop
+                            dotColor={"#13274F"}
+                            inactiveDotColor="#90A4AE"
+                            ImageComponentStyle={{ width: screenWidth, height: screenWidth *9/20}}
+                        />
+                        <ScrollView horizontal showsHorizontalScrollIndicator={false}>
+                            {categories.map((item, index) => (
+                                <Pressable
+                                    key={index}
                                     style={{
-                                        textAlign: "center",
-                                        fontSize: 12,
-                                        fontWeight: "500",
-                                        marginTop: 5,
+                                        margin: 10,
+                                        justifyContent: "center",
+                                        alignItems: "center",
                                     }}
                                 >
-                                    {item?.name}
-                                </Text>
-                            </Pressable>
-                        ))}
-                    </ScrollView>
-                    <View style={styles().titleContainer}>
-                        <View>
-                            <Text h1>{t('common:flashSale')}</Text>
-                            <Text h3 style={styles().subTitle}>{t('common:homeSubTitle')}</Text>
-                        </View>
-                        <TouchableHighlight underlayColor="transparent" onPress={() => navigation.navigate(t('Shop'))}>
-                            <Text h3>{t('common:viewAll')}</Text>
-                        </TouchableHighlight>
-                    </View>
-                    <ScrollView horizontal>
-                        <View style={styles().productContainer}>
-                            {/* {products && products
-                            .filter(product => product.tagIDs.includes(2))
-                            .map((product, index) => (
-                                <ProductCard
-                                    key={index}
-                                    // category={product.categoryIDs}
-                                    name={product.name}
-                                    ratingValue={product.ratingValue}
-                                    totalRating={product.totalRating}
-                                    price={product.price}
-                                    salePrice={product.salePrice}
-                                    image={product.image}
-                                    buttonStyle={{ backgroundColor: `${theme.colors.primary}` }}
-                                // label="NEW"
-                                />
-                            ))} */}
-                        </View>
-                    </ScrollView>
-                    <View style={styles().titleContainer}>
-                        <View>
-                            <Text h1>{t('common:new')}</Text>
-                            <Text h3 style={styles().subTitle}>{t('common:homeSubTitle')}</Text>
-                        </View>
-                        <TouchableHighlight underlayColor="transparent" onPress={() => navigation.navigate(t('Shop'))}>
-                            <Text h3>{t('common:viewAll')}</Text>
-                        </TouchableHighlight>
-                    </View>
-                    <ScrollView horizontal>
-                        <View style={styles().productContainer}>
-                            {data && data.map((product, index) => (
-                                <ProductItem key={index} item={product} />
+                                    <Image
+                                        style={{ width: 50, height: 50, resizeMode: "contain" }}
+                                        source={item?.image}
+                                    />
+
+                                    <Text
+                                        style={{
+                                            textAlign: "center",
+                                            fontSize: 12,
+                                            fontWeight: "500",
+                                            marginTop: 5,
+                                        }}
+                                    >
+                                        {item?.name}
+                                    </Text>
+                                </Pressable>
                             ))}
+                        </ScrollView>
+                        <View style={styles().titleContainer}>
+                            <View>
+                                <Text h1>{t('common:flashSale')}</Text>
+                                <Text h3 style={styles().subTitle}>{t('common:homeSubTitle')}</Text>
+                            </View>
+                            <TouchableHighlight underlayColor="transparent" onPress={() => navigation.navigate(t('Shop'))}>
+                                <Text h3>{t('common:viewAll')}</Text>
+                            </TouchableHighlight>
                         </View>
-                    </ScrollView>
+                        <ScrollView horizontal>
+                            <View style={styles().productContainer}>
+                                {flashSaleProduct && flashSaleProduct.map((product, index) => (
+                                    <ProductItem key={index} item={product} />
+                                ))}
+                            </View>
+                        </ScrollView>
+                        <View style={styles().titleContainer}>
+                            <View>
+                                <Text h1>{t('common:new')}</Text>
+                                <Text h3 style={styles().subTitle}>{t('common:homeSubTitle')}</Text>
+                            </View>
+                            <TouchableHighlight underlayColor="transparent" onPress={() => navigation.navigate(t('Shop'))}>
+                                <Text h3>{t('common:viewAll')}</Text>
+                            </TouchableHighlight>
+                        </View>
+                        <ScrollView horizontal>
+                            <View style={styles().productContainer}>
+                                {newProduct && newProduct.map((product, index) => (
+                                    <ProductItem key={index} item={product} />
+                                ))}
+                            </View>
+                        </ScrollView>
                     </ScrollView>
                 </View>
             </View>

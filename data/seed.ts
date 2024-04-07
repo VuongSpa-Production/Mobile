@@ -225,7 +225,7 @@ const products: product[] = [
         "price": 300000,
         "categoryIDs": [1],
         "tagIDs": [1,2],
-        "images": [],
+        "images": [images.product1],
         "rating": 3,
         "discount": 0,
         "sales": 10
@@ -235,7 +235,7 @@ const products: product[] = [
         "price": 1500000,
         "categoryIDs": [1],
         "tagIDs": [2],
-        "images": [],
+        "images": [images.product2],
         "rating": 4,
         "discount": 0,
         "sales": 20
@@ -245,7 +245,7 @@ const products: product[] = [
         "price": 1200000,
         "categoryIDs": [2],
         "tagIDs": [1],
-        "images": [],
+        "images": [images.product3],
         "rating": 4.5,
         "discount": 0,
         "sales": 15
@@ -255,7 +255,7 @@ const products: product[] = [
         "price": 800000,
         "categoryIDs": [3],
         "tagIDs": [2],
-        "images": [],
+        "images": [images.product4],
         "rating": 3.8,
         "discount": 0,
         "sales": 12
@@ -265,7 +265,7 @@ const products: product[] = [
         "price": 2000000,
         "categoryIDs": [4],
         "tagIDs": [1,3],
-        "images": [],
+        "images": [images.product5],
         "rating": 4.2,
         "discount": 0,
         "sales": 18
@@ -275,7 +275,7 @@ const products: product[] = [
         "price": 1800000,
         "categoryIDs": [5],
         "tagIDs": [2],
-        "images": [],
+        "images": [images.product6],
         "rating": 4.3,
         "discount": 0,
         "sales": 22
@@ -285,7 +285,7 @@ const products: product[] = [
         "price": 700000,
         "categoryIDs": [6],
         "tagIDs": [1,3],
-        "images": [],
+        "images": [images.product7],
         "rating": 3.5,
         "discount": 0,
         "sales": 9
@@ -295,7 +295,7 @@ const products: product[] = [
         "price": 300000,
         "categoryIDs": [7],
         "tagIDs": [2],
-        "images": [],
+        "images": [images.product8],
         "rating": 4,
         "discount": 0,
         "sales": 25
@@ -305,7 +305,7 @@ const products: product[] = [
         "price": 500000,
         "categoryIDs": [8],
         "tagIDs": [1,3],
-        "images": [],
+        "images": [images.product9],
         "rating": 3.7,
         "discount": 0,
         "sales": 14
@@ -315,7 +315,7 @@ const products: product[] = [
         "price": 2500000,
         "categoryIDs": [8],
         "tagIDs": [2],
-        "images": [],
+        "images": [images.product10],
         "rating": 4.6,
         "discount": 0,
         "sales": 30
@@ -325,7 +325,7 @@ const products: product[] = [
         "price": 1600000,
         "categoryIDs": [1],
         "tagIDs": [1],
-        "images": [],
+        "images": [images.product11],
         "rating": 4.2,
         "discount": 0,
         "sales": 18
@@ -335,7 +335,7 @@ const products: product[] = [
         "price": 2200000,
         "categoryIDs": [2],
         "tagIDs": [2],
-        "images": [],
+        "images": [images.product12],
         "rating": 4.4,
         "discount": 0,
         "sales": 23
@@ -345,7 +345,7 @@ const products: product[] = [
         "price": 900000,
         "categoryIDs": [3],
         "tagIDs": [1,3],
-        "images": [],
+        "images": [images.product13],
         "rating": 4,
         "discount": 0,
         "sales": 16
@@ -355,7 +355,7 @@ const products: product[] = [
         "price": 3500000,
         "categoryIDs": [4],
         "tagIDs": [2],
-        "images": [],
+        "images": [images.product14],
         "rating": 4.8,
         "discount": 0,
         "sales": 28
@@ -365,7 +365,7 @@ const products: product[] = [
         "price": 2800000,
         "categoryIDs": [5],
         "tagIDs": [1],
-        "images": [],
+        "images": [images.product15],
         "rating": 4.6,
         "discount": 0,
         "sales": 26
