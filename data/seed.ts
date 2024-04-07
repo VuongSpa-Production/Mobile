@@ -184,35 +184,38 @@ const orders: order[] = [
 const categories: category[] = [
     {
         name: "Máy khoan",
+        image: images.product11,
         id: 1
     },
     {
         name: "Máy cắt",
+        image: images.product3,
         id: 2
     },
     {
         name: "Máy mài",
+        image: images.product4,
         id: 3
     },
     {
         name: "Máy hàn",
+        image: images.product5,
         id: 4
     },
     {
-        name: "Máy cưa",
+        name: "Máy xay",
+        image: images.product6,
         id: 5
     },
     {
-        name: "Máy xay",
+        name: "Phụ kiện",
+        image: images.product7,
         id: 6
     },
     {
-        name: "Phụ kiện",
-        id: 7
-    },
-    {
         name: "Khác",
-        id: 8
+        image: images.product8,
+        id: 7
     }
 ]
 

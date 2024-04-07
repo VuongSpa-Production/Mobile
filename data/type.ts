@@ -27,6 +27,7 @@ type order = {
 
 type category = {
     name: string;
+    image: string;
     id: number;
 }
 

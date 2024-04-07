@@ -25,6 +25,8 @@ import { BottomModal, SlideAnimation, ModalContent } from "react-native-modals";
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { Entypo, AntDesign } from "@expo/vector-icons";
 import { categoriesData } from '../../data/categoriesData';
+import { categories } from '../../data/seed';
+import {images} from '../../constants';
 // import { bannerImages } from '../../data/bannerImage';
 import { TAB_BAR_HEIGHT } from '../../constants';
 
@@ -107,7 +109,7 @@ const Home = ({ navigation }) => {
                     {/* kết thúc chọn địa chỉ giao hàng */}
                     <ScrollView>
                     <SliderBox
-                        images={bannerImages}
+                        images={[images.image1, images.image2, images.image3]}
                         autoPlay
                         circleLoop
                         dotColor={"#13274F"}
@@ -115,7 +117,7 @@ const Home = ({ navigation }) => {
                         ImageComponentStyle={{ width: "100%" }}
                     />
                     <ScrollView horizontal showsHorizontalScrollIndicator={false}>
-                        {categoriesData.map((item, index) => (
+                        {categories.map((item, index) => (
                             <Pressable
                                 key={index}
                                 style={{
@@ -126,7 +128,7 @@ const Home = ({ navigation }) => {
                             >
                                 <Image
                                     style={{ width: 50, height: 50, resizeMode: "contain" }}
-                                    source={{ uri: item.image }}
+                                    source={item?.image}
                                 />
 
                                 <Text
