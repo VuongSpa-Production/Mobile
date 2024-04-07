@@ -74,7 +74,14 @@ const ProductCard = (props: DisplayProductProp) => {
                         status="primary"
                         value={tag ? tag : ""}
                         containerStyle={{ position: 'absolute', top: 10, left: 8 }}
-                        badgeStyle={[tag && { backgroundColor: "#000", borderColor: 'transparent', borderRadius: 25, paddingHorizontal: 2, height: 24 }, badgeStyle]}
+                        badgeStyle={
+                            [tag && { 
+                                backgroundColor: "#000", 
+                                borderColor: 'transparent', 
+                                borderRadius: 25, 
+                                paddingHorizontal: 2, 
+                                height: 24 
+                            }, badgeStyle]}
                         textStyle={{ fontSize: 11, fontWeight: "700" }}
                     />
 

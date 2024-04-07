@@ -14,6 +14,8 @@ import ProductCard from '../../components/ProductCard';
 import ErrorBoundary from '../../components/HOC/ErrorBoundary';
 import { banner } from "../../data";
 import { products } from '../../data/seed';
+import { data } from '../../data/newData';
+import ProductItem from '../../components/ProductItem/ProductItem';
 
 const Home = ({ navigation }) => {
     const { t } = useTranslation();
@@ -73,19 +75,8 @@ const Home = ({ navigation }) => {
                 </View>
                 <ScrollView horizontal>
                     <View style={styles().productContainer}>
-                        {products && products.map((product, index) => (
-                            <ProductCard
-                                key={index}
-                                category={product.categoryId}
-                                name={product.name}
-                                ratingValue={product.ratingValue}
-                                totalRating={product.totalRating}
-                                price={product.price}
-                                salePrice={product.salePrice}
-                                image={product.image}
-                                buttonStyle={{ backgroundColor: `${theme.colors.primary}` }}
-                                label="NEW"
-                            />
+                        {data && data.map((product, index) => (
+                            <ProductItem key={index} item={product}/>
                         ))}
                     </View>
                 </ScrollView>
