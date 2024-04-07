@@ -126,7 +126,7 @@ const Home = ({ navigation }) => {
                     {/* kết thúc chọn địa chỉ giao hàng */}
                     <ScrollView>
                         <SliderBox
-                            images={[images.image1, images.image2, images.image3]}
+                            images={[images.image1, images.image2]}
                             autoPlay
                             circleLoop
                             dotColor={"#13274F"}
