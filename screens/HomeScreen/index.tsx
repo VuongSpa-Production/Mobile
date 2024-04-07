@@ -6,7 +6,7 @@
 
 
 import React, { useEffect, useState } from 'react';
-import { ScrollView, View, TouchableHighlight, Dimensions, Pressable } from 'react-native';
+import { ScrollView, View, TouchableHighlight, Dimensions, Pressable, Image } from 'react-native';
 import { SliderBox } from "react-native-image-slider-box";
 import { Button, Text, useTheme } from '@rneui/themed';
 import { Ionicons } from "@expo/vector-icons";
@@ -24,14 +24,16 @@ import { addressesList, Address } from '../../data/addressData';
 import { BottomModal, SlideAnimation, ModalContent } from "react-native-modals";
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { Entypo, AntDesign } from "@expo/vector-icons";
+import { categoriesData } from '../../data/categoriesData';
 // import { bannerImages } from '../../data/bannerImage';
+import { TAB_BAR_HEIGHT } from '../../constants';
 
 
 const Home = ({ navigation }) => {
     const { t } = useTranslation();
     const { theme } = useTheme();
     const screenHeight = Dimensions.get('window').height;
-    const sixtyFivePercentOfScreenHeight = screenHeight * 0.5;
+    const sixtyFivePercentOfScreenHeight = screenHeight * 1;
     const [modalVisible, setModalVisible] = useState(false);
     const [addresses, setAddresses] = useState(addressesList);
     const [selectedAddress, setSelectedAdress] = useState<Address | null>(addressesList[0]);
@@ -47,11 +49,25 @@ const Home = ({ navigation }) => {
         , [modalVisible]);
 
     return (
-        <View>
-            <ScrollView>
-                <View style={styles().container}>
-                    <View style={styles(sixtyFivePercentOfScreenHeight).imageContainer}>
-                        {/* <ImageBackground source={banner.image} resizeMode="cover" style={styles().image}>
+        <View
+            style={{
+                backgroundColor: "white",
+            }}
+        >
+            <View
+                style={{
+                    backgroundColor: "white",
+                    height: sixtyFivePercentOfScreenHeight,
+                    paddingBottom:TAB_BAR_HEIGHT
+                }}
+            >
+                <View 
+                style = {{
+                    backgroundColor: "white",
+                    flex: 1,
+                }}
+                >
+                    {/* <ImageBackground source={banner.image} resizeMode="cover" style={styles().image}>
                         <Text style={styles().text}>{banner.text}</Text>
                         <Button
                             size="sm"
@@ -60,44 +76,72 @@ const Home = ({ navigation }) => {
                             containerStyle={styles().button}
                         />
                     </ImageBackground> */}
-                        <SearchBar />
-                        {/* chọn địa chỉ giao hàng */}
-                        <Pressable
-                            onPress={() => setModalVisible(!modalVisible)}
-                            style={{
-                                flexDirection: "row",
-                                alignItems: "center",
-                                gap: 5,
-                                padding: 10,
-                                backgroundColor: "white",
-                            }}
-                        >
-                            <Ionicons name="location-outline" size={24} color="black" />
+                    <SearchBar />
+                    {/* chọn địa chỉ giao hàng */}
+                    <Pressable
+                        onPress={() => setModalVisible(!modalVisible)}
+                        style={{
+                            flexDirection: "row",
+                            alignItems: "center",
+                            gap: 5,
+                            padding: 10,
+                            backgroundColor: "white",
+                        }}
+                    >
+                        <Ionicons name="location-outline" size={24} color="black" />
 
-                            <Pressable>
-                                {selectedAddress ? (
-                                    <Text>
-                                        Giao tới {selectedAddress?.name} - {selectedAddress?.street}
-                                    </Text>
-                                ) : (
-                                    <Text style={{ fontSize: 13, fontWeight: "500" }}>
-                                        Chọn địa chỉ giao hàng
-                                    </Text>
-                                )}
-                            </Pressable>
-
-                            <MaterialIcons name="keyboard-arrow-down" size={24} color="black" />
+                        <Pressable>
+                            {selectedAddress ? (
+                                <Text>
+                                    Giao tới {selectedAddress?.name} - {selectedAddress?.street}
+                                </Text>
+                            ) : (
+                                <Text style={{ fontSize: 13, fontWeight: "500" }}>
+                                    Chọn địa chỉ giao hàng
+                                </Text>
+                            )}
                         </Pressable>
-                        {/* kết thúc chọn địa chỉ giao hàng */}
-                        <SliderBox
-                            images={bannerImages}
-                            autoPlay
-                            circleLoop
-                            dotColor={"#13274F"}
-                            inactiveDotColor="#90A4AE"
-                            ImageComponentStyle={{ width: "100%" }}
-                        />
-                    </View>
+
+                        <MaterialIcons name="keyboard-arrow-down" size={24} color="black" />
+                    </Pressable>
+                    {/* kết thúc chọn địa chỉ giao hàng */}
+                    <ScrollView>
+                    <SliderBox
+                        images={bannerImages}
+                        autoPlay
+                        circleLoop
+                        dotColor={"#13274F"}
+                        inactiveDotColor="#90A4AE"
+                        ImageComponentStyle={{ width: "100%" }}
+                    />
+                    <ScrollView horizontal showsHorizontalScrollIndicator={false}>
+                        {categoriesData.map((item, index) => (
+                            <Pressable
+                                key={index}
+                                style={{
+                                    margin: 10,
+                                    justifyContent: "center",
+                                    alignItems: "center",
+                                }}
+                            >
+                                <Image
+                                    style={{ width: 50, height: 50, resizeMode: "contain" }}
+                                    source={{ uri: item.image }}
+                                />
+
+                                <Text
+                                    style={{
+                                        textAlign: "center",
+                                        fontSize: 12,
+                                        fontWeight: "500",
+                                        marginTop: 5,
+                                    }}
+                                >
+                                    {item?.name}
+                                </Text>
+                            </Pressable>
+                        ))}
+                    </ScrollView>
                     <View style={styles().titleContainer}>
                         <View>
                             <Text h1>{t('common:flashSale')}</Text>
@@ -143,17 +187,9 @@ const Home = ({ navigation }) => {
                             ))}
                         </View>
                     </ScrollView>
+                    </ScrollView>
                 </View>
-            </ScrollView>
-
-            <SliderBox
-                images={bannerImages}
-                autoPlay
-                circleLoop
-                dotColor={"#13274F"}
-                inactiveDotColor="#90A4AE"
-                ImageComponentStyle={{ width: "100%" }}
-            />
+            </View>
 
             {
                 modalVisible ? (
