@@ -39,19 +39,21 @@ const Home = ({ navigation }) => {
                 </View>
                 <View style={styles().titleContainer}>
                     <View>
-                        <Text h1>{t('common:suggested')}</Text>
+                        <Text h1>{t('common:flashSale')}</Text>
                         <Text h3 style={styles().subTitle}>{t('common:homeSubTitle')}</Text>
                     </View>
-                    <TouchableHighlight underlayColor="transparent" onPress={() => navigation.navigate(t('common:shop'))}>
+                    <TouchableHighlight underlayColor="transparent" onPress={() => navigation.navigate(t('Shop'))}>
                         <Text h3>{t('common:viewAll')}</Text>
                     </TouchableHighlight>
                 </View>
                 <ScrollView horizontal>
                     <View style={styles().productContainer}>
-                        {products && products.map((product, index) => (
+                        {products && products
+                        .filter(product => product.tagIDs.includes(2))
+                        .map((product, index) => (
                             <ProductCard
                                 key={index}
-                                category={product.categoryId}
+                                // category={product.categoryIDs}
                                 name={product.name}
                                 ratingValue={product.ratingValue}
                                 totalRating={product.totalRating}
@@ -69,7 +71,7 @@ const Home = ({ navigation }) => {
                         <Text h1>{t('common:new')}</Text>
                         <Text h3 style={styles().subTitle}>{t('common:homeSubTitle')}</Text>
                     </View>
-                    <TouchableHighlight underlayColor="transparent" onPress={() => navigation.navigate(t('common:shop'))}>
+                    <TouchableHighlight underlayColor="transparent" onPress={() => navigation.navigate(t('Shop'))}>
                         <Text h3>{t('common:viewAll')}</Text>
                     </TouchableHighlight>
                 </View>

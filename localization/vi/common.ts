@@ -21,8 +21,8 @@ export default {
     fashionSale: 'Fashion sale',
     new: 'Sản phẩm mới',
     homeSubTitle: "You've never seen it before!",
-    viewAll: 'Xem tất cả',
-    shop: 'Sản phẩm',
+    viewAll: 'Xem ngay',
+    shop: 'Shop',
     haveAnAccount: 'Already have an Account?',
     filters: 'Bộ lọc',
     priceRange: 'Price range',
@@ -36,4 +36,5 @@ export default {
     cropPhoto: 'Crop the item',
     findingResults: 'Finding similar results...',
     suggested: 'Gợi ý cho bạn',
+    flashSale: 'Đang giảm giá',
 };

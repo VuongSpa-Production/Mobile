@@ -6,20 +6,22 @@
 
 
 import React, { useState, Dispatch, useEffect } from 'react';
-import { View, Dimensions, Text } from 'react-native';
+import {View, Dimensions, Text } from 'react-native';
 import { scale, verticalScale } from "react-native-size-matters";
 import { styles } from './styles';
 import Tab from "../../components/Tab";
 import TabView from "../../components/TabView";
 import ErrorBoundary from '../../components/HOC/ErrorBoundary';
 import AppContainer from '../../components/HOC/AppContainer';
-import { categories, categoryBanner, products } from "../../data";
+// import { categories, categoryBanner, products } from "../../data";
+import { categories, products, tags } from "../../data/seed";
 import { HEADER_HEIGHT } from '../../constants';
 import { useDispatch } from 'react-redux';
 import { changeCategory } from "../../store/productSlice";
 import CategoryScreen from '../CategoryScreen';
 import ProductCard from '../../components/ProductCard';
 import { useTheme } from '@rneui/themed';
+import { ScrollView } from 'react-native-gesture-handler';
 
 
 
@@ -42,9 +44,15 @@ const Shop = ({ navigation }) => {
     }
 
     useEffect(() => {
-        console.log("category da chon: ", categories[index])
-        const filteredProducts = products.filter(product => product.categoryId === categories[index].categoryID);
-        setDisplayProduct(filteredProducts)
+        console.log("tagId da chon: ", tags[index].id)
+        if(tags[index].id === 4) {
+            setDisplayProduct(products)
+        }
+        else 
+        {
+            const filteredProducts = products.filter(product => product.tagIDs.includes(tags[index].id));
+            setDisplayProduct(filteredProducts)
+        }
     }, [index])
 
     useEffect(() => {
@@ -58,7 +66,7 @@ const Shop = ({ navigation }) => {
              * Gốc có marginTop là HEADER_HEIGHT, lưu ý style sau này có thể thêm lại
              */}
             <View style={{ marginTop: 0 }}>
-                <Tab items={categories} index={index} setIndex={setIndex} />
+                <Tab items={tags} index={index} setIndex={setIndex} />
 
                 {/* banner cho quảng cáo */}
                 {/* <View style={[styles.banner, { width: screenWidth, height: screenHeight }]}>
@@ -71,13 +79,12 @@ const Shop = ({ navigation }) => {
                      * Component cũ để hiển thị các subcategories
                      */
                 }
-                <TabView 
+                {/* <TabView 
                     items={categories} 
                     index={index} 
                     setIndex={setIndex} 
                     onPress={(category) => updateCategory(category)} 
-                />
-
+                /> */}
 
                 <View style={styles.productContainer}>
                     {displayProducts && displayProducts.map((product, index) => (

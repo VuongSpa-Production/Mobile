@@ -3,12 +3,20 @@ import { product, tag, category } from "./type";
 
 const tags: tag[] = [
     {
-        name: "Mới",
+        name: "Flash Sale",
         id: 1
     },
     {
-        name: "Bán chạy",
+        name: "Mới",
         id: 2
+    },
+    {
+        name: "Bán chạy",
+        id: 3
+    },
+    {
+        name: "Tất cả",
+        id: 4
     }
 ]
 
@@ -52,7 +60,7 @@ const products: product[] = [
         "name": "Máy Đánh Giấy Ráp Rung DongCheng DSB185",
         "price": 300000,
         "categoryIDs": [1],
-        "tagIDs": [1],
+        "tagIDs": [1,2],
         "images": [],
         "rating": 3,
         "discount": 0,
@@ -92,7 +100,7 @@ const products: product[] = [
         "name": "Máy Hàn Que Hyundai MMA-140",
         "price": 2000000,
         "categoryIDs": [4],
-        "tagIDs": [1],
+        "tagIDs": [1,3],
         "images": [],
         "rating": 4.2,
         "discount": 0,
@@ -112,7 +120,7 @@ const products: product[] = [
         "name": "Máy Xay Bosch MMBM7G3M",
         "price": 700000,
         "categoryIDs": [6],
-        "tagIDs": [1],
+        "tagIDs": [1,3],
         "images": [],
         "rating": 3.5,
         "discount": 0,
@@ -132,7 +140,7 @@ const products: product[] = [
         "name": "Máy Thổi Khí Mini Handy",
         "price": 500000,
         "categoryIDs": [8],
-        "tagIDs": [1],
+        "tagIDs": [1,3],
         "images": [],
         "rating": 3.7,
         "discount": 0,
@@ -172,7 +180,7 @@ const products: product[] = [
         "name": "Máy Mài Góc Bosch GWS 7-100",
         "price": 900000,
         "categoryIDs": [3],
-        "tagIDs": [1],
+        "tagIDs": [1,3],
         "images": [],
         "rating": 4,
         "discount": 0,
