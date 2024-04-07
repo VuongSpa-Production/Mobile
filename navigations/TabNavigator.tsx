@@ -80,13 +80,14 @@ const BagStackScreen = () => {
                 name="BagStack"
                 component={Bag}
                 options={{
+                    headerShown: false,
                     headerTransparent: true,
                     header: (properties) => (
                         <Header
                             {...properties}
                             isShowBackIcon={false}
-                            isShowSearchIcon
-                        />)
+                            isShowSearchIcon={true}
+                        />),
                 }}
             />
         </BagStack.Navigator>
@@ -106,7 +107,7 @@ const FavoritesStackScreen = () => {
                         <Header
                             {...properties}
                             isShowBackIcon={false}
-                            isShowSearchIcon
+                            isShowSearchIcon={false}
                         />)
                 }}
             />

@@ -53,9 +53,9 @@ const Shop = ({ navigation }) => {
     return (
         <AppContainer>
             {/**
-             * Gốc có marginTop là HEADER_HEIGHT, lưu ý style sau này có thể thêm lại
+             * TODO: Gốc có marginTop là HEADER_HEIGHT, lưu ý style sau này có thể thêm lại
              */}
-            <View style={{ marginTop: 50 }}>
+            <View style={{ marginTop: 0 }}>
                 <Tab items={statusOrders} index={index} setIndex={setIndex} />
 
                 {/* <View style={styles.productContainer}>

@@ -7,6 +7,7 @@
 
 import { useTranslation } from "react-i18next";
 
+// hàm này sẽ trả về tên của route dựa vào route đó
 export const getRouteName = (route: any) => {
   const { t } = useTranslation();
   const routeName: string = route.name ?? "Login";
@@ -37,6 +38,7 @@ export const getRouteName = (route: any) => {
   }
 }
 
+// hàm này sẽ trả về tiêu đề của header dựa vào route đó
 export const getHeaderTitle = (route) => {
   const { t } = useTranslation();
 

@@ -5,7 +5,7 @@ import {reducer as authReducer} from './authSlice';
 const rootReducer = combineReducers({
   product: productReducer,
   auth: authReducer,
-  cart: createReducer
+  // cart: createReducer
 });
 
 export default rootReducer;

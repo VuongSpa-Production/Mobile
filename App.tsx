@@ -19,6 +19,7 @@ import store, { IRootState } from "./store";
 import './localization/i18n';
 import { $CombinedState } from '@reduxjs/toolkit';
 import AuthHandler from './components/AuthHandler/AuthHandler';
+import { ModalPortal } from "react-native-modals";
 
 const myTheme = createTheme({
   ...theme,
@@ -65,6 +66,7 @@ const App = () => {
         <NavigationContainer>
           <ThemeProvider theme={myTheme}>
             <AuthHandler />
+            <ModalPortal/>
           </ThemeProvider>
         </NavigationContainer>
       </SafeAreaProvider>
