@@ -16,7 +16,6 @@ import ProductCard from '../../components/ProductCard';
 import ErrorBoundary from '../../components/HOC/ErrorBoundary';
 import SearchBar from '../../components/SearchBar/SearchBar';
 import { MaterialIcons } from "@expo/vector-icons";
-import { banner } from "../../data";
 import { products } from '../../data/seed';
 import { data } from '../../data/newData';
 import ProductItem from '../../components/ProductItem/ProductItem';
@@ -44,6 +43,7 @@ function filterDisplayData(data: product[]) {
                 rate: item.rating,
                 count: 1,
             },
+            sales: item.sales,
         };
     });
 }
