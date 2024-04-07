@@ -1,3 +1,5 @@
+import { ImageSourcePropType } from "react-native";
+
 type product = {
     name: string;
     price: number;
@@ -27,7 +29,8 @@ type order = {
 
 type category = {
     name: string;
-    image: string;
+    image: ImageSourcePropType; // có thể để any nhưng để ntn để biết phải require
+    //TODO: chấp nhận nhiều kiểu source
     id: number;
 }
 

@@ -128,7 +128,7 @@ const Home = ({ navigation }) => {
                             >
                                 <Image
                                     style={{ width: 50, height: 50, resizeMode: "contain" }}
-                                    source={item?.image}
+                                    source={ item?.image }
                                 />
 
                                 <Text
