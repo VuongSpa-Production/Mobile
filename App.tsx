@@ -44,7 +44,7 @@ const myTheme = createTheme({
     },
     Button: {
       buttonStyle: {
-        backgroundColor: '#DB3022',
+        backgroundColor: '#00CED1',
         borderRadius: 25,
         paddingVertical: 15,
       },

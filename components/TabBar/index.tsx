@@ -74,8 +74,8 @@ const TabBar = (props: TabBarProps) => {
                             key={index}
                         >
                             <View style={styles().center}>
-                                <SvgIcon name={label.toLowerCase()} color={isFocused ? '#DB3022' : '#9B9B9B'} isFocused={isFocused} width={30} height={30} />
-                                <Text style={[styles().navText, { color: isFocused ? '#DB3022' : '#9B9B9B' }]}>
+                                <SvgIcon name={label.toLowerCase()} color={isFocused ? '#00CED1' : '#9B9B9B'} isFocused={isFocused} width={30} height={30} />
+                                <Text style={[styles().navText, { color: isFocused ? '#00CED1' : '#9B9B9B' }]}>
                                     {label}
                                 </Text>
                             </View>
