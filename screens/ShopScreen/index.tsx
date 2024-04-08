@@ -78,7 +78,7 @@ const Shop = ({ navigation }) => {
     <AppContainer>
       <View
         style={{
-          backgroundColor: "white",
+        //   backgroundColor: "white",
         }}
       >
         {/**
