@@ -29,6 +29,7 @@ import { images } from '../../constants';
 // import { bannerImages } from '../../data/bannerImage';
 import { TAB_BAR_HEIGHT } from '../../constants';
 import { product } from '../../data/type';
+import AppContainer from '../../components/HOC/AppContainer';
 
 function filterDisplayData(data: product[]) {
     return data.map((item) => {
@@ -335,6 +336,7 @@ const Home = ({ navigation }) => {
                         </ModalContent>
                     </BottomModal>) : null
             }
+            
         </View>
     );
 }

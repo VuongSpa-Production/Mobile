@@ -16,7 +16,7 @@ const ProductItem = ({ item }) => {
     dispatch(addToCart(item));
     setTimeout(() => {
       setAddedToCart(false);
-    }, 60000);
+    }, 10000);
   };
   useEffect(() => {
     console.log(item);
@@ -70,10 +70,10 @@ const ProductItem = ({ item }) => {
       >
         {addedToCart ? (
           <View>
-            <Text>Added to Cart</Text>
+            <Text>Đã thêm vào giỏ hàng</Text>
           </View>
         ) : (
-          <Text>Add to Cart</Text>
+          <Text>Thêm vào giỏ hàng</Text>
         )}
       </Pressable>
     </Pressable>
