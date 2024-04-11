@@ -26,31 +26,46 @@ const statusOrders: statusOrder[] = [
         id: 1
     },
     {
-        name: "Đang giao",
+        name: "Chờ lấy hàng",
         id: 2
     },
     {
-        name: "Đã giao",
+        name: "Đang giao hàng",
         id: 3
     },
     {
-        name: "Đã hủy",
+        name: "Đã giao",
         id: 4
-    }
+    },
+    {
+        name: "Đã hủy",
+        id: 5
+    },
+    {
+        name: "Trả hàng",
+        id: 6
+    },
 ]
 const orders: order[] = [
+    {
+        id: 0,
+        orderDate: "2024-03-25",
+        total: 0,
+        statusId: 5,
+        products: []
+    },
     {
         id: 1,
         orderDate: "2024-03-25",
         total: 2800000,
-        statusId: 1,
+        statusId: 4,
         products: []
     },
     {
         id: 2,
         orderDate: "2024-03-23",
         total: 3700000,
-        statusId: 2,
+        statusId: 6,
         products: []
     },
     {

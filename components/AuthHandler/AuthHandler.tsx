@@ -6,8 +6,10 @@ import TabNavigator from './../../navigations/TabNavigator';
 
 const AuthHandler = () => {
   const isLoggedIn = useSelector((state: IRootState) => state.root.auth.isLoggedIn);
+  const isUser = useSelector((state: IRootState) => state.root.auth.user);
   useEffect(() => {
     console.log('isLoggedIn', isLoggedIn);
+    console.log('isUser', isUser);
   }, [isLoggedIn]);
 
   return isLoggedIn ? <TabNavigator /> : <StackNavigator />;
