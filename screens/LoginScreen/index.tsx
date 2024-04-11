@@ -18,6 +18,10 @@ import AppContainer from '../../components/HOC/AppContainer';
 import { useDispatch } from 'react-redux';
 import { guestLogin } from '../../store/authSlice';
 
+import { processLogin as login } from '../../api/mockAuth';
+import { authData } from '../../data/type';
+import { login as reduxLogin } from '../../store/authSlice';
+
 const Login = ({ navigation }) => {
     const dispatch = useDispatch();
     const { theme } = useTheme();
@@ -32,6 +36,20 @@ const Login = ({ navigation }) => {
         password: yup.string().min(6, t('common:textCharacters', { numbers: 6, text: t('common:password') })).required(t('common:textRequired', { text: t('common:password') })),
     });
 
+    async function handleLogin(user: authData) {
+        console.log('Logging in: ' + user.email + ' - ' + user.password);
+        await login(user)
+            .then(result => {
+                dispatch(reduxLogin({
+                    username: ' ',
+                    email: user.email,
+                    token: result
+                }));
+            }).catch(error => {
+                console.log('Login error: ' + error);
+            })
+    }
+
     return (
         <AppContainer>
             <View style={styles.container}>
@@ -42,9 +60,12 @@ const Login = ({ navigation }) => {
                     <Formik
                         initialValues={{ email: '', password: '' }}
                         validationSchema={validationSchema}
-                        onSubmit={values => console.log(values)}
+                        onSubmit={values => {
+                            handleLogin(values)
+                        }}
                     >
-                        {({ handleChange, handleBlur, handleSubmit, values, errors, touched }) => (
+                        {({ handleChange, handleBlur, handleSubmit, values, errors,
+                            touched }) => (
                             <>
                                 <AnimatedTextInput
                                     placeholder={t('common:email')}
@@ -90,7 +111,7 @@ const Login = ({ navigation }) => {
                                         {
                                             marginVertical: 10,
                                         }
-                                    }/>
+                                    } />
                                     <Button
                                         title={t('Tiếp tục với tư cách khách')}
                                         uppercase

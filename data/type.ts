@@ -34,4 +34,9 @@ type category = {
     id: number;
 }
 
-export {product, tag, category, order, statusOrder}
+type authData = {
+    email: string;
+    password: string;
+}
+
+export {product, tag, category, order, statusOrder, authData}
