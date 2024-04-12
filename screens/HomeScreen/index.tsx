@@ -128,7 +128,7 @@ const Home = ({ navigation }) => {
                     <ScrollView>
                         <SliderBox
                             images={[images.image1, images.image2]}
-                            autoPlay
+                            autoplay
                             circleLoop
                             dotColor={"#13274F"}
                             inactiveDotColor="#90A4AE"
