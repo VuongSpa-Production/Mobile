@@ -9,7 +9,7 @@ import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import Home from "../screens/HomeScreen";
 import Shop from "../screens/ShopScreen";
-import Bag from "../screens/RegisterScreen";
+import Bag from "../screens/BagScreen";
 import Category from "../screens/CategoryScreen";
 import ProductFilter from "../screens/ProductFilterScreen";
 import Favorites from "../screens/OrderScreen";
