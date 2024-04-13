@@ -30,6 +30,7 @@ import { images } from '../../constants';
 import { TAB_BAR_HEIGHT } from '../../constants';
 import { product } from '../../data/type';
 import AppContainer from '../../components/HOC/AppContainer';
+import { useSafeAreaInsets } from 'react-native-safe-area-context';
 
 function filterDisplayData(data: product[]) {
     return data.map((item) => {
@@ -55,6 +56,7 @@ const Home = ({ navigation }) => {
     const { theme } = useTheme();
     const screenHeight = Dimensions.get('window').height;
     const screenWidth = Dimensions.get('window').width;
+    const insets = useSafeAreaInsets()
     const sixtyFivePercentOfScreenHeight = screenHeight * 1;
     const [modalVisible, setModalVisible] = useState(false);
     const [addresses, setAddresses] = useState(addressesList);
@@ -62,7 +64,7 @@ const Home = ({ navigation }) => {
 
     useEffect(() => {
         console.log("modal visible", modalVisible);
-    },[modalVisible]);
+    }, [modalVisible]);
 
 
     const newProduct = filterDisplayData(products.filter(product => product.tagIDs.includes(2)));
@@ -71,14 +73,15 @@ const Home = ({ navigation }) => {
     return (
         <View
             style={{
-                backgroundColor: "white",
+                marginTop: insets.top,
+                flex: 1,
             }}
         >
             <View
                 style={{
-                    backgroundColor: "white",
-                    height: sixtyFivePercentOfScreenHeight,
-                    paddingBottom: TAB_BAR_HEIGHT
+                    // height: sixtyFivePercentOfScreenHeight,
+                    // paddingBottom: TAB_BAR_HEIGHT
+                    flex:1
                 }}
             >
                 <View
@@ -87,15 +90,6 @@ const Home = ({ navigation }) => {
                         flex: 1,
                     }}
                 >
-                    {/* <ImageBackground source={banner.image} resizeMode="cover" style={styles().image}>
-                        <Text style={styles().text}>{banner.text}</Text>
-                        <Button
-                            size="sm"
-                            title={banner.buttonText}
-                            onPress={() => { }}
-                            containerStyle={styles().button}
-                        />
-                    </ImageBackground> */}
                     <SearchBar />
                     {/* chọn địa chỉ giao hàng */}
                     <Pressable
@@ -132,7 +126,7 @@ const Home = ({ navigation }) => {
                             circleLoop
                             dotColor={"#13274F"}
                             inactiveDotColor="#90A4AE"
-                            ImageComponentStyle={{ width: screenWidth, height: screenWidth *9/20}}
+                            ImageComponentStyle={{ width: screenWidth, height: screenWidth * 9 / 20 }}
                         />
                         <ScrollView horizontal showsHorizontalScrollIndicator={false}>
                             {categories.map((item, index) => (
@@ -336,7 +330,7 @@ const Home = ({ navigation }) => {
                         </ModalContent>
                     </BottomModal>) : null
             }
-            
+
         </View>
     );
 }

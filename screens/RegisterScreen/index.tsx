@@ -6,7 +6,7 @@
 
 
 import React from 'react';
-import { View, TouchableHighlight } from 'react-native';
+import { View, TouchableHighlight, Alert } from 'react-native';
 import { Icon, useTheme, Button, Text } from '@rneui/themed';
 import { useTranslation } from "react-i18next";
 import { Formik } from 'formik';
@@ -17,15 +17,34 @@ import Socials from '../../components/Socials';
 import ErrorBoundary from '../../components/HOC/ErrorBoundary';
 import AppContainer from '../../components/HOC/AppContainer';
 
+import { authData } from '../../data/type';
+import { processSignUp } from '../../api/mockAuth';
+import { useDispatch } from 'react-redux';
+import { login as reduxLogin } from '../../store/authSlice';
+
 const Register = ({ navigation }) => {
     const { theme } = useTheme();
     const { t } = useTranslation();
+    const dispatch = useDispatch();
 
     const validationSchema = yup.object().shape({
         email: yup.string().email(t('common:invalidEmail')).required(t('common:textRequired', { text: t('common:email') })),
         password: yup.string().min(6, t('common:textCharacters', { numbers: 6, text: t('common:password') })).required(t('common:textRequired', { text: t('common:password') })),
         name: yup.string().min(6, t('common:textCharacters', { numbers: 6, text: t('common:name') })).required(t('common:textRequired', { text: t('common:name') })),
     });
+
+    const handleRegister = async (values: authData) => {
+        try {
+            const token = await processSignUp(values);
+            dispatch(reduxLogin({
+                username: ' ',
+                email: values.email,
+                token
+            }));
+        } catch (error) {
+            Alert.alert(t('common:error'), error.message);
+        }
+    }
 
     return (
         <AppContainer>
@@ -37,13 +56,15 @@ const Register = ({ navigation }) => {
                     <Formik
                         initialValues={{ name: '', email: '', password: '' }}
                         validationSchema={validationSchema}
-                        onSubmit={values => console.log(values)}
+                        onSubmit={handleRegister}
                     >
                         {({ handleChange, handleBlur, handleSubmit, values, errors, touched }) => (
                             <>
                                 <AnimatedTextInput
                                     placeholder={t('common:name')}
-                                    value={values.name}
+                                    // TODO: fix lại cho đúng kiểu data
+                                    // value={values.name}
+                                    value='okokok'
                                     onChangeText={handleChange('name')}
                                     onBlur={handleBlur('name')}
                                     isError={touched.name && errors.name ? true : false}

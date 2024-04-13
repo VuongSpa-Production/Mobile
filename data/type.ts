@@ -39,4 +39,10 @@ type authData = {
     password: string;
 }
 
-export {product, tag, category, order, statusOrder, authData}
+type signUpData = {
+    name: string;
+    email: string;
+    password: string;
+}
+
+export {product, tag, category, order, statusOrder, authData, signUpData}

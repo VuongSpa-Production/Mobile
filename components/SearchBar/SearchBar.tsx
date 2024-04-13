@@ -11,7 +11,6 @@ const SearchBar = () => {
                 padding: 10,
                 flexDirection: "row",
                 alignItems: "center",
-                marginTop: 20,
             }}
         >
             <Pressable
