@@ -22,7 +22,6 @@ const product15 = require("../assets/products/15.jpg");
 const product16 = require("../assets/products/16.jpg");
 
 
-
 export default {
     bigBanner,
     product1,
