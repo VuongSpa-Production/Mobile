@@ -37,7 +37,9 @@ import { DisplayProductProp } from './displayProductProp';
 //     onPress?: () => void;
 // };
 
-const ProductCard = (props: DisplayProductProp) => {
+
+// TODO: chỉnh lại prop về dạng DisplayProductProp
+const ProductCard = (props: any) => {
     const { theme } = useTheme();
     const {
         name,

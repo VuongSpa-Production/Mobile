@@ -6,27 +6,44 @@
 
 
 import React, { useState, Dispatch, useEffect, useRef } from 'react';
-import {View, Dimensions, Text } from 'react-native';
+import { View, Dimensions, Text, ScrollView } from 'react-native';
 import { scale, verticalScale } from "react-native-size-matters";
-import { styles } from './styles';
 import Tab from "../../components/Tab";
 import TabView from "../../components/TabView";
 import ErrorBoundary from '../../components/HOC/ErrorBoundary';
 import AppContainer from '../../components/HOC/AppContainer';
 // import { categories, categoryBanner, products } from "../../data";
-import { categories, products, tags, statusOrders,orders } from "../../data/seed";
+import { categories, products, tags, statusOrders, orders } from "../../data/seed";
 import { HEADER_HEIGHT } from '../../constants';
 import { useDispatch } from 'react-redux';
 import { changeCategory } from "../../store/productSlice";
 import CategoryScreen from '../CategoryScreen';
-import ProductCard from '../../components/ProductCard';
 import { useTheme } from '@rneui/themed';
-import { GestureHandlerRootView, ScrollView } from 'react-native-gesture-handler';
+import { GestureHandlerRootView } from 'react-native-gesture-handler';
 
-
+import { products as productsList } from '../../data/seed';
+import ProductOrder from '../../components/ProductItem/ProductOrder';
 
 type DisplayProduct = {
     data: any;
+}
+
+function getProductItem(productID: number) {
+    const found = productsList.find((product) => product.id === productID);
+    if (found) {
+        console.log("found: ", found)
+        return {
+            title: found.name,
+            image: found.images[0],
+            price: found.price,
+        };
+    } else {
+        return {
+            title: "unknonwnname",
+            image: [],
+            price: 0,
+        };
+    }
 }
 
 const Shop = ({ navigation }) => {
@@ -55,7 +72,28 @@ const Shop = ({ navigation }) => {
             <Tab items={statusOrders} index={index} setIndex={setIndex} />
             <GestureHandlerRootView>
                 <ScrollView>
-
+                    <View styles={styles.container}>
+                        {displayOrders.map((order, index) => {
+                            return (
+                                <View key={index} style={styles.orderContainer}>
+                                    <ScrollView horizontal>
+                                        <View style={styles.productContainer}>
+                                            {order && order.products.map((productID, index) => (
+                                                <ProductOrder
+                                                    key={index}
+                                                    item={getProductItem(productID)}
+                                                // navigation={navigation} 
+                                                />
+                                            ))}
+                                        </View>
+                                    </ScrollView>
+                                    {/* <Text style={styles.orderText}>Order ID: {order.id}</Text> */}
+                                    <Text style={styles.orderText}>Thời gian đặt hàng: {order.orderDate}</Text>
+                                    <Text style={styles.orderText}>Tổng số tiền: {order.total}</Text>
+                                </View>
+                            )
+                        })}
+                    </View>
 
                 </ScrollView>
             </GestureHandlerRootView>
@@ -64,5 +102,40 @@ const Shop = ({ navigation }) => {
     );
 }
 
+const styles = {
+    container: {
+        flex: 1,
+        flexDirection: "column",
+        justifyContent: "flex-start",
+        alignItems: "center",
+        marginTop: HEADER_HEIGHT,
+    },
+    orderContainer: {
+        width: "100%",
+        backgroundColor: "white",
+        marginVertical: verticalScale(10),
+        padding: scale(10),
+        borderRadius: scale(10),
+        justifyContent: "space-around",
+        alignItems: "flex-start",
+        shadowColor: "black",
+        shadowOffset: {
+            width: 0,
+            height: 2,
+        },
+        shadowOpacity: 0.25,
+        shadowRadius: 3.84,
+        elevation: 5,
+    },
+    orderText: {
+        fontSize: scale(12),
+        color: "black",
+    },
+    productContainer: {
+        flexDirection: "row",
+        justifyContent: "flex-start",
+        alignItems: "center",
+    }
+}
 
 export default ErrorBoundary(Shop);

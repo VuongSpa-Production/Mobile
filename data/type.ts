@@ -1,6 +1,7 @@
 import { ImageSourcePropType } from "react-native";
 
 type product = {
+    id: number;
     name: string;
     price: number;
     categoryIDs: number[];
@@ -24,7 +25,7 @@ type order = {
     orderDate: string;
     total: number;
     statusId: statusOrder["id"];
-    products: product[];
+    products: number[];
 }
 
 type category = {
